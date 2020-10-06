@@ -8,27 +8,32 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * Активити для установки текста по клику на кнопку
+ *
+ * @author Moiseeva Anastasia on 06.10.2020
+ */
 public class MainActivity extends AppCompatActivity {
 
-    EditText enterText;
-    Button setText;
-    TextView settedText;
+    private EditText mEnterEditText;
+    private Button mSetTextButton;
+    private TextView mEnteredTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        enterText = findViewById(R.id.editText_enter_text);
-        setText = findViewById(R.id.button_set_text);
-        settedText = findViewById(R.id.textView_entered_text);
+        mEnterEditText = findViewById(R.id.enter_edit_text);
+        mSetTextButton = findViewById(R.id.set_text_button);
+        mEnteredTextView = findViewById(R.id.entered_text_view);
 
-        setText.setOnClickListener(new View.OnClickListener(){
+        mSetTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = enterText.getText().toString();
-                if (!text.isEmpty()){
-                    settedText.setText(text);
+                String text = mEnterEditText.getText().toString();
+                if (!text.isEmpty()) {
+                    mEnteredTextView.setText(text);
                 }
             }
         });
